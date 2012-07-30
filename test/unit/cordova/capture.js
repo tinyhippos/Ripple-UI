@@ -13,8 +13,8 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
-describe("blackberry.capture", function () {
-    var capture = require('ripple/platform/webworks.bb10/1.0.0/capture'),
+describe("cordova capture", function () {
+    var capture = require('ripple/platform/cordova/2.0.0/bridge/capture'),
         event = require('ripple/event'),
         camera = require('ripple/ui/plugins/camera');
 
