@@ -29,7 +29,6 @@ describe("webworks camera", function () {
 
     describe("when taking a picture", function () {
         var success = jasmine.createSpy(),
-            error = jasmine.createSpy(),
             close = jasmine.createSpy();
 
         beforeEach(function () {
@@ -55,6 +54,38 @@ describe("webworks camera", function () {
 
         it("registers for the camera-closed event with the onCameraClosed callback", function () {
             camera.takePicture(success, close);
+            expect(event.once).toHaveBeenCalledWith("camera-closed", close);
+            
+        });
+    });
+
+    describe("when taking a video", function () {
+        var success = jasmine.createSpy(),
+            close = jasmine.createSpy();
+
+        beforeEach(function () {
+            spyOn(ui, "show");
+            spyOn(event, "once");
+        });
+
+        it("shows the ui camera", function () {
+            camera.takeVideo();
+            expect(ui.show).toHaveBeenCalled();
+        });
+
+        it("registers for the captured-image event", function () {
+            camera.takeVideo(success);
+            expect(event.once).toHaveBeenCalledWith("captured-video", jasmine.any(Function));
+        });
+
+        it("calls the success callback with a path to the file from the captured-image event", function () {
+            camera.takeVideo(success);
+            event.once.mostRecentCall.args[1]("file://videos/jumping_hifive.mp4");
+            expect(success).toHaveBeenCalledWith("file://videos/jumping_hifive.mp4");
+        });
+
+        it("registers for the camera-closed event with the onCameraClosed callback", function () {
+            camera.takeVideo(success, close);
             expect(event.once).toHaveBeenCalledWith("camera-closed", close);
             
         });
