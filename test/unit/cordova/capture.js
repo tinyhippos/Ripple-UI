@@ -23,24 +23,70 @@ describe("cordova capture", function () {
         spyOn(event, "once").andCallThrough();
     });
 
-    it("it shows the camera when called", function () {
-        capture.captureImage();
-        expect(camera.show).toHaveBeenCalled();
+    describe("when capturing an image", function () {
+        it("it shows the camera when called", function () {
+            capture.captureImage();
+            expect(camera.show).toHaveBeenCalledWith('image');
+        });
+
+        it("registers for the captured-image event once", function () {
+            capture.captureImage();
+            expect(event.once).toHaveBeenCalledWith("captured-image", jasmine.any(Function));
+        });
+
+        it("doesn't trigger the success or error callbacks", function () {
+            var win = jasmine.createSpy("win"),
+                fail = jasmine.createSpy("fail");
+
+            capture.captureImage(win, fail);
+
+            expect(win).not.toHaveBeenCalled();
+            expect(fail).not.toHaveBeenCalled();
+        });
+    });
+    
+    describe("when capturing a video", function () {
+        it("it shows the camera when called", function () {
+            capture.captureVideo();
+            expect(camera.show).toHaveBeenCalledWith('video');
+        });
+
+        it("registers for the captured-image event once", function () {
+            capture.captureVideo();
+            expect(event.once).toHaveBeenCalledWith("captured-video", jasmine.any(Function));
+        });
+
+        it("doesn't trigger the success or error callbacks", function () {
+            var win = jasmine.createSpy("win"),
+                fail = jasmine.createSpy("fail");
+
+            capture.captureVideo(win, fail);
+
+            expect(win).not.toHaveBeenCalled();
+            expect(fail).not.toHaveBeenCalled();
+        });
     });
 
-    it("registers for the captured-image event once", function () {
-        capture.captureImage();
-        expect(event.once).toHaveBeenCalledWith("captured-image", jasmine.any(Function));
-    });
+    describe("when capturing sound", function () {
+        it("it shows the camera when called", function () {
+            capture.captureAudio();
+            expect(camera.show).toHaveBeenCalledWith('audio');
+        });
 
-    it("doesn't trigger the success or error callbacks", function () {
-        var win = jasmine.createSpy("win"),
-            fail = jasmine.createSpy("fail");
+        it("registers for the captured-audio event once", function () {
+            capture.captureAudio();
+            expect(event.once).toHaveBeenCalledWith("captured-audio", jasmine.any(Function));
+        });
 
-        capture.captureImage(win, fail);
+        it("doesn't trigger the success or error callbacks", function () {
+            var win = jasmine.createSpy("win"),
+                fail = jasmine.createSpy("fail");
 
-        expect(win).not.toHaveBeenCalled();
-        expect(fail).not.toHaveBeenCalled();
+            capture.captureAudio(win, fail);
+
+            expect(win).not.toHaveBeenCalled();
+            expect(fail).not.toHaveBeenCalled();
+        });
     });
 
     describe("when the captured-image event is fired", function () {
@@ -53,6 +99,32 @@ describe("cordova capture", function () {
             event.trigger("captured-image", ["path", image], true);
 
             expect(win).toHaveBeenCalledWith([image]);
+        });
+    });
+
+    describe("when the captured-video event is fired", function () {
+        it("calls the success callback", function () {
+            var win = jasmine.createSpy("win"),
+                fail = jasmine.createSpy("fail"),
+                video = {};
+
+            capture.captureVideo(win, fail);
+            event.trigger("captured-video", ["path", video], true);
+
+            expect(win).toHaveBeenCalledWith([video]);
+        });
+    });
+
+    describe("when the captured-audio event is fired", function () {
+        it("calls the success callback", function () {
+            var win = jasmine.createSpy("win"),
+                fail = jasmine.createSpy("fail"),
+                song = {};
+
+            capture.captureAudio(win, fail);
+            event.trigger("captured-audio", ["path", song], true);
+
+            expect(win).toHaveBeenCalledWith([song]);
         });
     });
 });
