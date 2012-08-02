@@ -16,7 +16,8 @@
   "dependencies": {
     "connect": "2.3.6",
     "jsdom": "0.2.14",
-    "jWorkflow": "0.7.0"
+    "jWorkflow": "0.7.0",
+    "xmlhttprequest": "1.4.2"
   },
   "bundledDependencies": [
     "connect",
