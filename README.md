@@ -21,7 +21,7 @@ In particular, the assets under ext/assets/images are excluded from the Apache S
 
     ./configure
 
-This script will pull down the needed npm packages and initialize the submodules.
+This script will pull down the needed npm packages.
 
 ## Build Commands
 
