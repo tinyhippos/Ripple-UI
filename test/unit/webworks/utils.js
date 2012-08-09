@@ -14,7 +14,7 @@
  * limitations under the License.
  */
 describe("utils", function () {
-    var utils = require('ripple/platform/webworks.core/2.0.0/client/utils');
+    var utils = require('ripple/platform/webworks/core/2.0.0/client/utils');
 
     beforeEach(function () {
         global.BlobBuilder = global.WebKitBlobBuilder = jasmine.createSpy();
@@ -28,9 +28,9 @@ describe("utils", function () {
     describe("handset", function () {
         describe("platform spec index", function () {
             it("includes module according to proper object structure", function () {
-                var spec = require('ripple/platform/webworks.handset/2.0.0/spec');
+                var spec = require('ripple/platform/webworks/handset/2.0.0/spec');
                 expect(spec.objects.blackberry.children.utils).toEqual({
-                    path: "webworks.core/2.0.0/client/utils",
+                    path: "webworks/core/2.0.0/client/utils",
                     feature: "blackberry.utils"
                 });
             });
@@ -40,9 +40,9 @@ describe("utils", function () {
     describe("tablet", function () {
         describe("platform spec index", function () {
             it("includes module according to proper object structure", function () {
-                var spec = require('ripple/platform/webworks.tablet/2.0.0/spec');
+                var spec = require('ripple/platform/webworks/tablet/2.0.0/spec');
                 expect(spec.objects.blackberry.children.utils).toEqual({
-                    path: "webworks.core/2.0.0/client/utils",
+                    path: "webworks/core/2.0.0/client/utils",
                     feature: "blackberry.utils"
                 });
             });

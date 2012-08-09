@@ -13,11 +13,11 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
-describe("webworks.tablet system event", function () {
-    var server = require('ripple/platform/webworks.tablet/2.0.0/server/systemEvent'),
-        client = require('ripple/platform/webworks.tablet/2.0.0/client/systemEvent'),
-        deviceSpec = require('ripple/platform/webworks.tablet/2.0.0/spec/device'),
-        transport = require('ripple/platform/webworks.core/2.0.0/client/transport'),
+describe("webworks/tablet system event", function () {
+    var server = require('ripple/platform/webworks/tablet/2.0.0/server/systemEvent'),
+        client = require('ripple/platform/webworks/tablet/2.0.0/client/systemEvent'),
+        deviceSpec = require('ripple/platform/webworks/tablet/2.0.0/spec/device'),
+        transport = require('ripple/platform/webworks/core/2.0.0/client/transport'),
         event = require('ripple/event'),
         MockBaton = function () {
             this.take = jasmine.createSpy('baton.take');
@@ -25,12 +25,12 @@ describe("webworks.tablet system event", function () {
         };
 
     describe("platform spec", function () {
-        var spec = require('ripple/platform/webworks.tablet/2.0.0/spec');
+        var spec = require('ripple/platform/webworks/tablet/2.0.0/spec');
 
         // NOTE: system and system.event for Playbook do not require feature declarations (see docs)
         it("includes the module according to proper object structure", function () {
             expect(spec.objects.blackberry.children.system.children.event.path)
-                .toEqual("webworks.tablet/2.0.0/client/systemEvent");
+                .toEqual("webworks/tablet/2.0.0/client/systemEvent");
         });
 
         describe("events", function () {
@@ -54,7 +54,7 @@ describe("webworks.tablet system event", function () {
 
     describe("server index", function () {
         it("exposes the system event module", function () {
-            var webworks = require('ripple/platform/webworks.tablet/2.0.0/server');
+            var webworks = require('ripple/platform/webworks/tablet/2.0.0/server');
             expect(webworks.blackberry.system.event).toEqual(server);
         });
     });

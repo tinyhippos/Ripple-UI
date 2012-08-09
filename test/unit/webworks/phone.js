@@ -14,22 +14,22 @@
  * limitations under the License.
  */
 describe("webworks phone", function () {
-    var phone = require('ripple/platform/webworks.handset/2.0.0/server/phone'),
-        Phone = require('ripple/platform/webworks.handset/2.0.0/client/Phone'),
-        PhoneCall = require('ripple/platform/webworks.handset/2.0.0/client/PhoneCall'),
-        CallLog = require('ripple/platform/webworks.handset/2.0.0/client/CallLog'),
-        PhoneLogs = require('ripple/platform/webworks.handset/2.0.0/client/PhoneLogs'),
-        FilterExpression = require('ripple/platform/webworks.handset/2.0.0/client/FilterExpression'),
-        webworks = require('ripple/platform/webworks.handset/2.0.0/server'),
-        spec = require('ripple/platform/webworks.handset/2.0.0/spec'),
-        select = require('ripple/platform/webworks.core/2.0.0/select'),
+    var phone = require('ripple/platform/webworks/handset/2.0.0/server/phone'),
+        Phone = require('ripple/platform/webworks/handset/2.0.0/client/Phone'),
+        PhoneCall = require('ripple/platform/webworks/handset/2.0.0/client/PhoneCall'),
+        CallLog = require('ripple/platform/webworks/handset/2.0.0/client/CallLog'),
+        PhoneLogs = require('ripple/platform/webworks/handset/2.0.0/client/PhoneLogs'),
+        FilterExpression = require('ripple/platform/webworks/handset/2.0.0/client/FilterExpression'),
+        webworks = require('ripple/platform/webworks/handset/2.0.0/server'),
+        spec = require('ripple/platform/webworks/handset/2.0.0/spec'),
+        select = require('ripple/platform/webworks/core/2.0.0/select'),
         event = require('ripple/event'),
         MockBaton = function () {
             this.take = jasmine.createSpy("baton.take");
             this.pass = jasmine.createSpy("baton.pass");
         },
         db = require('ripple/db'),
-        transport = require('ripple/platform/webworks.core/2.0.0/client/transport');
+        transport = require('ripple/platform/webworks/core/2.0.0/client/transport');
 
     describe("server index", function () {
         it("exposes phone", function () {
@@ -44,22 +44,22 @@ describe("webworks phone", function () {
 
         it("includes Phone according to proper api structure", function () {
             expect(spec.objects.blackberry.children.phone.children.Phone.path)
-                .toEqual("webworks.handset/2.0.0/client/Phone");
+                .toEqual("webworks/handset/2.0.0/client/Phone");
         });
 
         it("includes PhoneLogs according to proper api structure", function () {
             expect(spec.objects.blackberry.children.phone.children.PhoneLogs.path)
-                .toEqual("webworks.handset/2.0.0/client/PhoneLogs");
+                .toEqual("webworks/handset/2.0.0/client/PhoneLogs");
         });
 
         it("includes CallLog according to proper api structure", function () {
             expect(spec.objects.blackberry.children.phone.children.PhoneLogs.children.CallLog.path)
-                .toEqual("webworks.handset/2.0.0/client/CallLog");
+                .toEqual("webworks/handset/2.0.0/client/CallLog");
         });
 
         it("includes PhoneFilterExpression according to proper api structure", function () {
             expect(spec.objects.blackberry.children.phone.children.Find.children.FilterExpression.path)
-                .toEqual("webworks.handset/2.0.0/client/FilterExpression");
+                .toEqual("webworks/handset/2.0.0/client/FilterExpression");
         });
     });
 

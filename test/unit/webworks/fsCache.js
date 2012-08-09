@@ -16,9 +16,9 @@
 describe("fsCache", function () {
     var fs = require('ripple/dbfs'),
         event = require('ripple/event'),
-        FileProperties = require('ripple/platform/webworks.core/2.0.0/client/FileProperties'),
-        bbUtils = require('ripple/platform/webworks.core/2.0.0/client/utils'),
-        cache = require('ripple/platform/webworks.core/2.0.0/fsCache'),
+        FileProperties = require('ripple/platform/webworks/core/2.0.0/client/FileProperties'),
+        bbUtils = require('ripple/platform/webworks/core/2.0.0/client/utils'),
+        cache = require('ripple/platform/webworks/core/2.0.0/fsCache'),
         _root = [{
         fullPath: "/dude",
         name: "dude",

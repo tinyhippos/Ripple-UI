@@ -14,14 +14,14 @@
  * limitations under the License.
  */
 describe("webworks contact", function () {
-    var contact = require('ripple/platform/webworks.handset/2.0.0/server/contact'),
-        Contact = require('ripple/platform/webworks.handset/2.0.0/client/Contact'),
-        webworks = require('ripple/platform/webworks.handset/2.0.0/server'),
+    var contact = require('ripple/platform/webworks/handset/2.0.0/server/contact'),
+        Contact = require('ripple/platform/webworks/handset/2.0.0/client/Contact'),
+        webworks = require('ripple/platform/webworks/handset/2.0.0/server'),
         db = require('ripple/db'),
-        select = require('ripple/platform/webworks.core/2.0.0/select'),
-        FilterExpression = require('ripple/platform/webworks.handset/2.0.0/client/FilterExpression'),
-        spec = require('ripple/platform/webworks.handset/2.0.0/spec'),
-        transport = require('ripple/platform/webworks.core/2.0.0/client/transport');
+        select = require('ripple/platform/webworks/core/2.0.0/select'),
+        FilterExpression = require('ripple/platform/webworks/handset/2.0.0/client/FilterExpression'),
+        spec = require('ripple/platform/webworks/handset/2.0.0/spec'),
+        transport = require('ripple/platform/webworks/core/2.0.0/client/transport');
 
     describe("server index", function () {
         it("exposes the module", function () {
@@ -32,7 +32,7 @@ describe("webworks contact", function () {
     describe("spec index", function () {
         it("includes module according to proper object structure", function () {
             expect(spec.objects.blackberry.children.pim.children.Contact.path)
-                .toEqual("webworks.handset/2.0.0/client/Contact");
+                .toEqual("webworks/handset/2.0.0/client/Contact");
         });
     });
 

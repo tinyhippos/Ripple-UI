@@ -14,7 +14,7 @@
  * limitations under the License.
  */
 describe("connection", function () {
-    var target = require('ripple/platform/webworks.bb10/1.0.0/connection'),
+    var target = require('ripple/platform/webworks/bb10/1.0.0/connection'),
         deviceSettings = require('ripple/deviceSettings');
 
     it("gets the value from device settings for the type", function () {

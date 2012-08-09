@@ -14,20 +14,20 @@
  * limitations under the License.
  */
 describe("webworks Message", function () {
-    var Message = require('ripple/platform/webworks.handset/2.0.0/client/Message'),
-        Service = require('ripple/platform/webworks.handset/2.0.0/client/identity/Service'),
-        select = require('ripple/platform/webworks.core/2.0.0/select'),
-        FilterExpression = require('ripple/platform/webworks.handset/2.0.0/client/FilterExpression'),
-        transport = require('ripple/platform/webworks.core/2.0.0/client/transport');
+    var Message = require('ripple/platform/webworks/handset/2.0.0/client/Message'),
+        Service = require('ripple/platform/webworks/handset/2.0.0/client/identity/Service'),
+        select = require('ripple/platform/webworks/core/2.0.0/select'),
+        FilterExpression = require('ripple/platform/webworks/handset/2.0.0/client/FilterExpression'),
+        transport = require('ripple/platform/webworks/core/2.0.0/client/transport');
 
     describe("client side code", function () {
-        var identity = require('ripple/platform/webworks.handset/2.0.0/client/identity');
+        var identity = require('ripple/platform/webworks/handset/2.0.0/client/identity');
 
         describe("in spec", function () {
             it("includes module according to proper object structure", function () {
-                var spec = require('ripple/platform/webworks.handset/2.0.0/spec');
+                var spec = require('ripple/platform/webworks/handset/2.0.0/spec');
                 expect(spec.objects.blackberry.children.message.children.Message.path)
-                    .toEqual("webworks.handset/2.0.0/client/Message");
+                    .toEqual("webworks/handset/2.0.0/client/Message");
             });
         });
 
@@ -215,8 +215,8 @@ describe("webworks Message", function () {
     });
 
     describe("server side code", function () {
-        var message = require('ripple/platform/webworks.handset/2.0.0/server/message'),
-            webworks = require('ripple/platform/webworks.handset/2.0.0/server'),
+        var message = require('ripple/platform/webworks/handset/2.0.0/server/message'),
+            webworks = require('ripple/platform/webworks/handset/2.0.0/server'),
             db = require('ripple/db');
 
         describe("using server", function () {

@@ -13,10 +13,10 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
-describe("webworks.tablet system event", function () {
-    var systemEvent = require('ripple/platform/webworks.tablet/2.0.0/client/systemEvent'),
-        spec = require('ripple/platform/webworks.tablet/2.0.0/spec'),
-        ww_XMLHttpRequest = require('ripple/platform/webworks.core/2.0.0/XMLHttpRequest'),
+describe("webworks/tablet system event", function () {
+    var systemEvent = require('ripple/platform/webworks/tablet/2.0.0/client/systemEvent'),
+        spec = require('ripple/platform/webworks/tablet/2.0.0/spec'),
+        ww_XMLHttpRequest = require('ripple/platform/webworks/core/2.0.0/XMLHttpRequest'),
         helpers = require('ripple/xhr/helpers'),
         xhr = require('ripple/xhr'),
         platform = require('ripple/platform'),
@@ -38,7 +38,7 @@ describe("webworks.tablet system event", function () {
         _oldXHR = window.XMLHttpRequest;
         xhr.initialize();
         global.XMLHttpRequest = window.XMLHttpRequest = ww_XMLHttpRequest
-            .create('ripple/platform/webworks.tablet/2.0.0/server');
+            .create('ripple/platform/webworks/tablet/2.0.0/server');
 
         spyOn(platform, "current").andReturn(spec);
         spyOn(console, "log");

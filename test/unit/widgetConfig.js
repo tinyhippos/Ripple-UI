@@ -139,7 +139,7 @@ describeBrowser("widgetConfig", function () {
 
     describe("webworks config", function () {
         beforeEach(function () {
-            spyOn(platform, "current").andReturn(require('ripple/platform/webworks.handset/2.0.0/spec'));
+            spyOn(platform, "current").andReturn(require('ripple/platform/webworks/handset/2.0.0/spec'));
         });
 
         it("can handle duplicate nodes at different levels", function () {

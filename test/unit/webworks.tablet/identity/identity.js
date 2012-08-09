@@ -14,13 +14,13 @@
  * limitations under the License.
  */
 describe("webworks identity", function () {
-    var identity = require('ripple/platform/webworks.tablet/2.0.0/server/identity'),
-        deviceSpec = require('ripple/platform/webworks.handset/2.0.0/spec/device'),
-        transport = require('ripple/platform/webworks.core/2.0.0/client/transport'),
-        identityClient = require('ripple/platform/webworks.tablet/2.0.0/client/identity'),
+    var identity = require('ripple/platform/webworks/tablet/2.0.0/server/identity'),
+        deviceSpec = require('ripple/platform/webworks/handset/2.0.0/spec/device'),
+        transport = require('ripple/platform/webworks/core/2.0.0/client/transport'),
+        identityClient = require('ripple/platform/webworks/tablet/2.0.0/client/identity'),
         deviceSettings = require('ripple/deviceSettings'),
-        spec = require('ripple/platform/webworks.tablet/2.0.0/spec'),
-        webworks = require('ripple/platform/webworks.tablet/2.0.0/server');
+        spec = require('ripple/platform/webworks/tablet/2.0.0/spec'),
+        webworks = require('ripple/platform/webworks/tablet/2.0.0/server');
 
     describe("using server", function () {
         it("exposes the identity module", function () {
@@ -31,7 +31,7 @@ describe("webworks identity", function () {
     describe("in spec", function () {
         it("includes identity module according to proper object structure", function () {
             expect(spec.objects.blackberry.children.identity.path)
-                .toEqual("webworks.tablet/2.0.0/client/identity");
+                .toEqual("webworks/tablet/2.0.0/client/identity");
         });
     });
 

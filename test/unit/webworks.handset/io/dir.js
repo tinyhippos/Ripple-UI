@@ -13,18 +13,18 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
-describe("webworks.handset io.dir", function () {
-    var server = require('ripple/platform/webworks.handset/2.0.0/server/io/dir'),
-        client = require('ripple/platform/webworks.handset/2.0.0/client/io/dir'),
-        cache = require('ripple/platform/webworks.core/2.0.0/fsCache'),
-        transport = require('ripple/platform/webworks.core/2.0.0/client/transport'),
+describe("webworks/handset io.dir", function () {
+    var server = require('ripple/platform/webworks/handset/2.0.0/server/io/dir'),
+        client = require('ripple/platform/webworks/handset/2.0.0/client/io/dir'),
+        cache = require('ripple/platform/webworks/core/2.0.0/fsCache'),
+        transport = require('ripple/platform/webworks/core/2.0.0/client/transport'),
         FILE = "file://";
 
     describe("platform spec index", function () {
         it("includes module according to proper object structure", function () {
-            var spec = require('ripple/platform/webworks.handset/2.0.0/spec');
+            var spec = require('ripple/platform/webworks/handset/2.0.0/spec');
             expect(spec.objects.blackberry.children.io.children.dir).toEqual({
-                path: "webworks.handset/2.0.0/client/io/dir",
+                path: "webworks/handset/2.0.0/client/io/dir",
                 feature: "blackberry.io.dir"
             });
         });
@@ -32,7 +32,7 @@ describe("webworks.handset io.dir", function () {
 
     describe("server index", function () {
         it("exposes the server module", function () {
-            var webworks = require('ripple/platform/webworks.handset/2.0.0/server');
+            var webworks = require('ripple/platform/webworks/handset/2.0.0/server');
             expect(webworks.blackberry.io.dir).toEqual(server);
         });
     });

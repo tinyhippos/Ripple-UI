@@ -13,11 +13,11 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
-describe("webworks.core system", function () {
-    var system = require('ripple/platform/webworks.core/2.0.0/server/system'),
-        client = require('ripple/platform/webworks.core/2.0.0/client/system'),
-        transport = require('ripple/platform/webworks.core/2.0.0/client/transport'),
-        deviceSpec = require('ripple/platform/webworks.handset/2.0.0/spec/device'),
+describe("webworks/core system", function () {
+    var system = require('ripple/platform/webworks/core/2.0.0/server/system'),
+        client = require('ripple/platform/webworks/core/2.0.0/client/system'),
+        transport = require('ripple/platform/webworks/core/2.0.0/client/transport'),
+        deviceSpec = require('ripple/platform/webworks/handset/2.0.0/spec/device'),
         app = require('ripple/app'),
         utils = require('ripple/utils'),
         deviceSettings = require('ripple/deviceSettings'),

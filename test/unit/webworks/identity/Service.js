@@ -14,12 +14,12 @@
  * limitations under the License.
  */
 describe("webworks identity.Service", function () {
-    var spec = require('ripple/platform/webworks.handset/2.0.0/spec');
+    var spec = require('ripple/platform/webworks/handset/2.0.0/spec');
 
     describe("in spec", function () {
         it("includes Service module according to proper object structure", function () {
             expect(spec.objects.blackberry.children.identity.children.Service.path)
-                .toEqual("webworks.handset/2.0.0/client/identity/Service");
+                .toEqual("webworks/handset/2.0.0/client/identity/Service");
         });
     });
 });
