@@ -340,6 +340,11 @@ section.left { left: 0; }
 /* ------------------------------>
     overlay UI */
 
+#overlay-views {
+    height: 100%;
+    display: none;
+}
+
 .overlay {
     z-index: 10000;
     width: 100%;
